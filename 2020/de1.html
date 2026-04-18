@@ -232,9 +232,9 @@ window.doSubmit=function(){
   }
   document.getElementById("tmrWrap").style.display="none";
   var rw=document.getElementById("resWrap");rw.style.display="block";
-  rw.innerHTML="<div class=\"res-head\">Ệt quả bài làm</div>"
-    +"<div class=\"rrow\"><span class=\"rl\">Ời gian</span><span class=\"rv\">"+fmt(el)+"</span></div>"
-    +"<div class=\"rrow\"><span class=\"rl\">Số câu đúng</span><span class=\"rv\">"+correct+" / "+total+"</span></div>";
+  rw.innerHTML="<div class=\"res-head\">Kết quả bài làm</div>"
+    +"<div class=\"rrow\"><span class=\"rl\">Thời gian</span><span class=\"rv\">"+fmt(el)+"</span></div>"
+    +"<div class=\"rrow\"><span class=\"rl\">Số câu đúnh</span><span class=\"rv\">"+correct+" / "+total+"</span></div>";
   document.getElementById("subBtn").style.display="none";
   showResult(correct,total,el);
 };
