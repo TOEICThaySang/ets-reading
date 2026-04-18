@@ -255,7 +255,7 @@ function showResult(correct,total,el){
   var ds=mkS("",uA.length,"⚪ Chưa làm");ds.querySelector(".rb-stat-n").style.color="#888";grid.appendChild(ds);
   box.appendChild(grid);
   if(wA.length){var wb=mk("div","rb-lb wrong");wb.innerHTML="<div class=\"rb-lt\">📝 Câu sai</div><div class=\"rb-lc\">"+fmtList(wrong)+"</div>";box.appendChild(wb);}
-  if(uA.length){var ub=mk("div","rb-lb una");ub.innerHTML="<div class=\"rb-lt\">⚠ Cưa làm</div><div class=\"rb-lc\">"+fmtList(una)+"</div>";box.appendChild(ub);}
+  if(uA.length){var ub=mk("div","rb-lb una");ub.innerHTML="<div class=\"rb-lt\">⚠ Chưa làm</div><div class=\"rb-lc\">"+fmtList(una)+"</div>";box.appendChild(ub);}
   var br=mk("div","rb-btns");
   var bc=mk("button","rb-close","✖ Đóng");bc.onclick=function(){document.getElementById("rOvl").classList.remove("show");};
   var bs=mk("button","rb-save","⬇ Lưu kết quả");(function(c,t,s,e){bs.onclick=function(){saveRes(c,t,s,e,window._wd,window._ud);};})(correct,total,score,el);
