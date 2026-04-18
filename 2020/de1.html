@@ -234,7 +234,7 @@ window.doSubmit=function(){
   var rw=document.getElementById("resWrap");rw.style.display="block";
   rw.innerHTML="<div class=\"res-head\">Kết quả bài làm</div>"
     +"<div class=\"rrow\"><span class=\"rl\">Thời gian</span><span class=\"rv\">"+fmt(el)+"</span></div>"
-    +"<div class=\"rrow\"><span class=\"rl\">Số câu đúnh</span><span class=\"rv\">"+correct+" / "+total+"</span></div>";
+    +"<div class=\"rrow\"><span class=\"rl\">Số câu đúng</span><span class=\"rv\">"+correct+" / "+total+"</span></div>";
   document.getElementById("subBtn").style.display="none";
   showResult(correct,total,el);
 };
@@ -246,7 +246,7 @@ function showResult(correct,total,el){
   window._wd=wrong;window._ud=una;
   function mk(tag,cls,txt){var d=document.createElement(tag);if(cls)d.className=cls;if(txt!==undefined)d.textContent=txt;return d;}
   var box=document.getElementById("rBox");box.innerHTML="";
-  var hdr=mk("div","rb-hdr");hdr.appendChild(mk("div","rb-icon")).textContent="🏆";hdr.appendChild(mk("div","rb-title",document.title));hdr.appendChild(mk("div","rb-sub","Ời gian: "+fmt(el)));box.appendChild(hdr);
+  var hdr=mk("div","rb-hdr");hdr.appendChild(mk("div","rb-icon")).textContent="🏆";hdr.appendChild(mk("div","rb-title",document.title));hdr.appendChild(mk("div","rb-sub","Thời gian: "+fmt(el)));box.appendChild(hdr);
   var grid=mk("div","rb-grid");
   function mkS(cls,n,lbl){var d=mk("div","rb-stat "+cls);d.appendChild(mk("div","rb-stat-n",String(n)));d.appendChild(mk("div","rb-stat-l",lbl));return d;}
   grid.appendChild(mkS("green",correct,"✅ Câu đúng"));
