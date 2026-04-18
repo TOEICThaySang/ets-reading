@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luyện đề Reading ETS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f7ff;
+      --white: #ffffff;
+      --text: #1a1d2e;
+      --muted: #6b7280;
+      --border: #e5e7f0;
+      --col1: #4f46e5;
+      --col1-light: #eef2ff;
+      --col2: #0ea5e9;
+      --col2-light: #e0f2fe;
+      --col3: #10b981;
+      --col3-light: #d1fae5;
+      --col4: #f59e0b;
+      --col4-light: #fef3c7;
+      --col5: #ec4899;
+      --col5-light: #fce7f3;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+      padding: 56px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: #86efac;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, #fde68a, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 32px;
+    }
+
+    .hero-stat .num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .hero-stat .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .main {
+      max-width: 1100px;
+      margin: -32px auto 60px;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    }
+
+    .card-head {
+      padding: 22px 16px 16px;
+      text-align: center;
+    }
+
+    .card:nth-child(1) .card-head { background: var(--col1-light); }
+    .card:nth-child(2) .card-head { background: var(--col2-light); }
+    .card:nth-child(3) .card-head { background: var(--col3-light); }
+    .card:nth-child(4) .card-head { background: var(--col4-light); }
+    .card:nth-child(5) .card-head { background: var(--col5-light); }
+
+    .card-icon {
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 22px;
+    }
+
+    .card:nth-child(1) .card-icon { background: var(--col1); }
+    .card:nth-child(2) .card-icon { background: var(--col2); }
+    .card:nth-child(3) .card-icon { background: var(--col3); }
+    .card:nth-child(4) .card-icon { background: var(--col4); }
+    .card:nth-child(5) .card-icon { background: var(--col5); }
+
+    .card-head h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .card:nth-child(1) .card-head h2 { color: var(--col1); }
+    .card:nth-child(2) .card-head h2 { color: var(--col2); }
+    .card:nth-child(3) .card-head h2 { color: var(--col3); }
+    .card:nth-child(4) .card-head h2 { color: var(--col4); }
+    .card:nth-child(5) .card-head h2 { color: var(--col5); }
+
+    .card-head .sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .divider { height: 1px; background: var(--border); }
+
+    .btn-list {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .de-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: transparent;
+      border: 1.5px solid transparent;
+      transition: all 0.18s;
+      cursor: pointer;
+    }
+
+    .de-btn:hover { background: var(--bg); }
+
+    .card:nth-child(1) .de-btn:hover { background: var(--col1-light); border-color: #c7d2fe; color: var(--col1); }
+    .card:nth-child(2) .de-btn:hover { background: var(--col2-light); border-color: #bae6fd; color: var(--col2); }
+    .card:nth-child(3) .de-btn:hover { background: var(--col3-light); border-color: #a7f3d0; color: var(--col3); }
+    .card:nth-child(4) .de-btn:hover { background: var(--col4-light); border-color: #fde68a; color: var(--col4); }
+    .card:nth-child(5) .de-btn:hover { background: var(--col5-light); border-color: #fbcfe8; color: var(--col5); }
+
+    .de-btn .badge {
+      width: 22px; height: 22px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: var(--bg);
+      color: var(--muted);
+      transition: all 0.18s;
+    }
+
+    .card:nth-child(1) .de-btn:hover .badge { background: #c7d2fe; color: var(--col1); }
+    .card:nth-child(2) .de-btn:hover .badge { background: #bae6fd; color: var(--col2); }
+    .card:nth-child(3) .de-btn:hover .badge { background: #a7f3d0; color: var(--col3); }
+    .card:nth-child(4) .de-btn:hover .badge { background: #fde68a; color: var(--col4); }
+    .card:nth-child(5) .de-btn:hover .badge { background: #fbcfe8; color: var(--col5); }
+
+    .de-btn.disabled { opacity: 0.38; cursor: default; pointer-events: none; }
+
+    .footer {
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @media (max-width: 860px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 40px 20px 64px; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 360px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="dot"></span>TOEIC Reading Practice</div>
+      <h1>Luyện đề <span class="highlight">Reading ETS</span></h1>
+      <p>Kho đề thi thực từ ETS 2020 – 2024.<br>Luyện tập mỗi ngày, tự tin chinh phục TOEIC!</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">45</div><div class="lbl">Đề thi</div></div>
+        <div class="hero-stat"><div class="num">5</div><div class="lbl">Năm ETS</div></div>
+        <div class="hero-stat"><div class="num">100%</div><div class="lbl">Miễn phí</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon">📘</div>
+          <h2>ETS 2020</h2>
+          <div class="sub">10 đề thi</div>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-list" id="col-2020"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon">📗</div>
+          <h2>ETS 2021</h2>
+          <div class="sub">5 đề thi</div>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-list" id="col-2021"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon">📙</div>
+          <h2>ETS 2022</h2>
+          <div class="sub">10 đề thi</div>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-list" id="col-2022"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon">📕</div>
+          <h2>ETS 2023</h2>
+          <div class="sub">10 đề thi</div>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-list" id="col-2023"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon">📓</div>
+          <h2>ETS 2024</h2>
+          <div class="sub">10 đề thi</div>
+        </div>
+        <div class="divider"></div>
+        <div class="btn-list" id="col-2024"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">Tài liệu luyện thi TOEIC Reading · ETS 2020 – 2024</div>
+
+<script>
+  /* ========================================================
+     CHỈNH SỬA LINK Ở ĐÂY
+     Thay "2020/de1.html" bằng đường dẫn thực tế của bạn
+  ======================================================== */
+  const data = {
+    "col-2020": [
+      { label: "Đề 1",  href: "2020/de1.html" },
+      { label: "Đề 2",  href: "2020/de2.html" },
+      { label: "Đề 3",  href: "2020/de3.html" },
+      { label: "Đề 4",  href: "2020/de4.html" },
+      { label: "Đề 5",  href: "2020/de5.html" },
+      { label: "Đề 6",  href: "2020/de6.html" },
+      { label: "Đề 7",  href: "2020/de7.html" },
+      { label: "Đề 8",  href: "2020/de8.html" },
+      { label: "Đề 9",  href: "2020/de9.html" },
+      { label: "Đề 10", href: "2020/de10.html" },
+    ],
+    "col-2021": [
+      { label: "Đề 1", href: "2021/de1.html" },
+      { label: "Đề 2", href: "2021/de2.html" },
+      { label: "Đề 3", href: "2021/de3.html" },
+      { label: "Đề 4", href: "2021/de4.html" },
+      { label: "Đề 5", href: "2021/de5.html" },
+    ],
+    "col-2022": [
+      { label: "Đề 1",  href: "2022/de1.html" },
+      { label: "Đề 2",  href: "2022/de2.html" },
+      { label: "Đề 3",  href: "2022/de3.html" },
+      { label: "Đề 4",  href: "2022/de4.html" },
+      { label: "Đề 5",  href: "2022/de5.html" },
+      { label: "Đề 6",  href: "2022/de6.html" },
+      { label: "Đề 7",  href: "2022/de7.html" },
+      { label: "Đề 8",  href: "2022/de8.html" },
+      { label: "Đề 9",  href: "2022/de9.html" },
+      { label: "Đề 10", href: "2022/de10.html" },
+    ],
+    "col-2023": [
+      { label: "Đề 1",  href: "2023/de1.html" },
+      { label: "Đề 2",  href: "2023/de2.html" },
+      { label: "Đề 3",  href: "2023/de3.html" },
+      { label: "Đề 4",  href: "2023/de4.html" },
+      { label: "Đề 5",  href: "2023/de5.html" },
+      { label: "Đề 6",  href: "2023/de6.html" },
+      { label: "Đề 7",  href: "2023/de7.html" },
+      { label: "Đề 8",  href: "2023/de8.html" },
+      { label: "Đề 9",  href: "2023/de9.html" },
+      { label: "Đề 10", href: "2023/de10.html" },
+    ],
+    "col-2024": [
+      { label: "Đề 1",  href: "2024/de1.html" },
+      { label: "Đề 2",  href: "2024/de2.html" },
+      { label: "Đề 3",  href: "2024/de3.html" },
+      { label: "Đề 4",  href: "2024/de4.html" },
+      { label: "Đề 5",  href: "2024/de5.html" },
+      { label: "Đề 6",  href: "2024/de6.html" },
+      { label: "Đề 7",  href: "2024/de7.html" },
+      { label: "Đề 8",  href: "2024/de8.html" },
+      { label: "Đề 9",  href: "2024/de9.html" },
+      { label: "Đề 10", href: "2024/de10.html" },
+    ],
+  };
+
+  for (const [colId, items] of Object.entries(data)) {
+    const container = document.getElementById(colId);
+    items.forEach((item, i) => {
+      const a = document.createElement('a');
+      a.className = 'de-btn' + (!item.href || item.href === '#' ? ' disabled' : '');
+      a.href = item.href || '#';
+      a.innerHTML = `<span class="badge">${i + 1}</span>${item.label}`;
+      container.appendChild(a);
+    });
+  }
+</script>
+</body>
+</html>
